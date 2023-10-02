@@ -1,0 +1,95 @@
+Col{
+    width: 100% !important;
+    padding: 0% !important;
+    margin: 0% !important;
+}
+.container{
+    color: white;
+}
+.singleImg{
+    width: 100%;
+}
+.singleImgCarousel{
+    padding: 0%;
+}
+.logoImg{
+    width: 100%;
+    padding: 0% !important;
+    height: 250px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 70px #6f87ffb8;
+   
+}
+.singleProductRightColumn{
+    background-color: #1E1F24;
+    padding: 20px;
+    border-radius: 5px;
+    height: 470px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: sticky;
+    right: 0%;
+    top: 0;
+}
+.singleProductleftColumn{
+    border-right: 20px solid #101114;
+    background-color: #1E1F24;
+    margin: 0%;
+}
+.callusBtn{
+background-color: firebrick !important;
+border: none;
+width: 100%;
+}
+.callusBtn:hover{
+    color: white !important;
+    box-shadow: 0px 10px 70px rgba(255, 229, 229, 0.347);
+    letter-spacing: 2px;
+}
+.descSubProperties{
+    width: 150px;
+    height: 100px;
+    background-color: transparent;
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-items: center !important;
+    align-items: center !important;
+    align-content: center !important;
+    margin: 10px;
+    border-radius: 10px;
+}
+.descSubProperties .row .col{
+    margin: 0% !important;
+    padding: 0% !important;
+}
+.descSubProperties  .col{
+    padding: 0% !important;
+    
+}
+
+.descSubProperties p{
+    margin-bottom: 0 !important;
+    font-size: small;
+    color: lightgray;
+}
+.propertyIcon{
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    
+}
+.descriptionDiv{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.ausstattungDiv{
+    padding: 20px;
+}
+.ausstattungLi{
+    display: flex !important;
+    flex-direction: column;
+    max-height: 1200px;
+}

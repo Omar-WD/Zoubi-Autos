@@ -1,0 +1,88 @@
+ 
+  .formInputFields{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+    color: black;
+  }
+  .formInputFields input{
+    height: 37px;
+  }
+  
+  .marke input{
+    height: 24px !important;
+    color: black !important;
+  }
+  .kategorie input{
+    height: 24px !important;
+    color: black !important;
+  }
+  
+  
+  
+  .labelAndInputDiv{
+    display: inline-flex;
+    flex-direction: column;
+    width: 220px !important;
+    text-align: left;
+    padding-bottom: 20px;
+    height: 80px;
+    font-size: small;
+  }
+  .labelAndInputDiv input{
+    width: 100% ;
+  }
+  
+  .ausstattung > *{
+    width: 270px !important;
+    text-align: left;
+    padding-bottom: 5px;
+  }
+  .ausstattung {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: white;
+    background-color: rgb(66, 104, 104);
+  }
+  .ausstattungList{
+    width: 100%;
+    height: auto;
+    background-color: rgb(66, 104, 104);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 35px;
+    gap: 10px;
+  }
+  .ausstattungList li{
+  text-align: left;
+  list-style: none;
+  width: 250px;
+  margin-right: 23px;
+  }
+  
+  .productImageContainer{
+    aspect-ratio: initial !important;
+  }
+  
+  .productCarouselImage{
+    
+    /* image-rendering: pixelated; */
+    /* object-fit: contain; */
+    
+    
+    
+    transition: transform 0.3s ease;
+  
+  }
+  
+  .productCarouselImage:hover {
+    transform: scale(1.5); 
+    image-rendering: pixelated;
+  }
