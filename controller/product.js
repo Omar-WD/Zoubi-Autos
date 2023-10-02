@@ -1,12 +1,13 @@
 require("dotenv/config")
 const Product= require ("../models/products")
 
+
 const createProduct=async(req,res)=>{
     try {
-        const { marke, modelljahr, erstzulassung, kategorie, hubraum, anzahlSitzplatze, anzahlDerTuren, schadstoffklasse, umweltplakette, Klimatisierung, einparkhilfe, airbags, farbeHersteller, farbe, innenausstattung, verbrauch, co2Emissionen, price,owner, ausstattung } = req.body
-        // const images=req.files.map(file=>file.secure_url)
+        const { marke, modelljahr,kilometer,motor,energy, erstzulassung, kategorie, hubraum, anzahlSitzplatze, anzahlDerTuren, schadstoffklasse, umweltplakette, Klimatisierung, einparkhilfe, airbags, farbeHersteller, farbe, innenausstattung, verbrauch, co2Emissionen, price,owner, ausstattung,Getriebe } = req.body
+        const images=req.files.map(file=>file.secure_url)
         const product= await Product.create({ 
-            marke, modelljahr, erstzulassung, kategorie, hubraum, anzahlSitzplatze, anzahlDerTuren, schadstoffklasse, umweltplakette, Klimatisierung, einparkhilfe, airbags, farbeHersteller, farbe, innenausstattung, verbrauch, co2Emissionen, price,owner, ausstattung
+            marke, modelljahr,kilometer,motor,energy, erstzulassung, kategorie, hubraum, anzahlSitzplatze, anzahlDerTuren, schadstoffklasse, umweltplakette, Klimatisierung, einparkhilfe, airbags, farbeHersteller, farbe, innenausstattung, verbrauch, co2Emissionen, price,owner, ausstattung,images,Getriebe
         })
         res.status(201).json(product)
         
@@ -28,4 +29,16 @@ const getAllProducts=async(req,res)=>{
 }
 
 
-module.exports={createProduct, getAllProducts}
+const getProductById =async(req,res)=>{
+    const id = req.params.id
+    try {
+        const product = await Product.findById(id)
+        res.status(201).json(product)
+    } catch (error) {
+        res.status(500).send("failed while getting one products" + error.message)
+    }
+
+}
+
+
+module.exports={createProduct, getAllProducts,getProductById}
