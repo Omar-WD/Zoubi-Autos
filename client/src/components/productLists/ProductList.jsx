@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col,Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
@@ -16,6 +16,8 @@ export default function ProductList() {
   const [maxModellJahr, setMaxModellJahr] = useState("5000");
   const [energyOption,setEnergyOption] = useState("")
   const [gearOption,setGearOption] = useState("")
+  const [minKM,setMinKM]= useState("0")
+  const [maxKM,setMaxKM]=useState("300000")
 
   useEffect(() => {
     axios
@@ -100,6 +102,29 @@ export default function ProductList() {
     {gear}
   </option>
   ))
+//////////////////////////////////////////////////////////////////////////
+const handleMinKM=((event)=>{
+  setMinKM(event.target.value)
+})
+const handleMaxKM=((event)=>{
+  setMaxKM(event.target.value)
+})
+
+
+
+const kilometerList=[]
+for (let i = 10000 ; i < 300000; i += 10000 ){
+  kilometerList.push(i)
+} 
+const minKilometer= kilometerList.map((kilometer)=>(
+  <option key={kilometer} value={kilometer}>{kilometer}</option>
+))
+
+const maxKilometer= kilometerList.map((kilometer)=>(
+  <option key={kilometer} value={kilometer}>{kilometer}</option>
+))
+
+//  console.log(kiloList); 
 
 
   //////////////////////////////////////////////////////////////////////////
@@ -124,8 +149,11 @@ export default function ProductList() {
       energyOption === "" || product.energy === energyOption;
     const gearMatches =
       gearOption === "" || product.Getriebe === gearOption;
+    const kiloMeterRange=
+    product.kilometer >= parseInt(minKM) &&
+    product.kilometer <= parseInt(maxKM)
   
-    return priceInRange && modellJahrInRange && energyMatches && gearMatches;
+    return priceInRange && modellJahrInRange && kiloMeterRange && energyMatches && gearMatches;
   });
   
 
@@ -134,7 +162,7 @@ export default function ProductList() {
       <Container>
         <Row>
           <Col xs={3} className="product-list-left-Col">
-            <div>
+            <div className="filterDiv">
               <h4>Pries</h4>
               <Row>
                 <Col>
@@ -157,7 +185,7 @@ export default function ProductList() {
                 </Col>
               </Row>
             </div>
-            <div>
+            <div className="filterDiv">
               <h4>ModellJahr</h4>
               <Row>
                 <Col>
@@ -174,7 +202,25 @@ export default function ProductList() {
                 </Col>
               </Row>
             </div>
-            <div>
+            <div className="filterDiv">
+              <h4>Kilometer</h4>
+              <Row>
+                <Col>
+                  <select value={minKM} onChange={handleMinKM}>
+                    <option value="0">von</option>
+                    {minKilometer}
+                  </select>
+                </Col>
+                <Col>
+                  <select value={maxKM} onChange={handleMaxKM}>
+                    <option value="300000">bis</option>
+                    <option value="5000">5000</option>
+                    {maxKilometer}
+                  </select>
+                </Col>
+              </Row>
+            </div>
+            <div className="filterDiv">
               <h4>Kraftstoffart</h4>
               <Row>
                 <Col >
@@ -185,7 +231,7 @@ export default function ProductList() {
                 </Col>
               </Row>
             </div>
-            <div>
+            <div className="filterDiv">
               <h4>Getriebe</h4>
               <Row>
                 <Col >
@@ -196,7 +242,7 @@ export default function ProductList() {
                 </Col>
               </Row>
             </div>
-            <button onClick={()=>{setGearOption(""), setEnergyOption(""),setMinModellJahr("1100"),setMaxModellJahr("5000"),setSelectMinPrice("0"),setSelectMaxPrice("1000000")}}>Clear Filter</button>
+            <Button onClick={()=>{setGearOption(""), setEnergyOption(""),setMinModellJahr("1100"),setMaxModellJahr("5000"),setSelectMinPrice("0"),setSelectMaxPrice("1000000"),setMinKM("0",setMaxKM("300000"))}}>Clear Filter</Button>
           </Col>
 
           <Col xs={8} className="product-list-right-Col">
