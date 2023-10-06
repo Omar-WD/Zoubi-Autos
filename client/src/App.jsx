@@ -6,6 +6,7 @@ import NavBar from "./components/navbar.jsx/NavBar"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Services from "./components/services/Services";
+import Contact from "./components/contact/Contact";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/:id" element={<SingleProduct />} />
         <Route path="/new" element={<CreateProduct />} />
         <Route path="/home" element={<Services />} />
+        <Route path="/Kontakt" element={<Contact />} />
         {/* <Route path="*" element={<NotFoud/>} />*/}
       </Routes>
       {/* <CreateProduct/> */}
