@@ -86,7 +86,7 @@ export default function Services() {
             </Button>
           </div>
         </Row>
-        <Row className="aboutUs">
+        <Row className="aboutUs" id="über-uns">
           <Row className="aboutUsInner">
             <Row>
               <h1 className="serviceHeader">Über uns</h1>
@@ -161,7 +161,7 @@ export default function Services() {
           </Row>
         </Row>
 
-        <Row className="bewertungr-Row" id="über-uns">
+        <Row className="bewertungr-Row" >
           <Row className="bewertungr-RowInner">
             <h1 className="serviceHeader">Wir bieten Ihnen</h1>
             <Col xs={6} className="bewertungr-RowInner-left">
