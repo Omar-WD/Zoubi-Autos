@@ -1,0 +1,41 @@
+.map-RowInner-Right{
+    padding: 10px 0 20px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.iconsTextRow5, .iconsTextRow6, .iconsTextRow7, .iconsTextRow8,.iconsTextRow9 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: center;
+    transform: translateX(200%);
+}
+
+.c12 {
+    animation: headmoveRL 0.5s forwards;
+}
+
+.c13 {
+    animation: headmoveRL 0.5s forwards 0.5s;
+}
+
+.c14 {
+    animation: headmoveRL 0.5s forwards 1s;
+}
+
+.c15 {
+    animation: headmoveRL 0.5s forwards 1.5s;
+}
+.c16 {
+    animation: headmoveRL 0.5s forwards 2s;
+}
+
+@keyframes headmoveRL{
+    0% {
+        transform: translateX(200%);
+    }100% {
+        transform: translateX(0);
+    }
+}
