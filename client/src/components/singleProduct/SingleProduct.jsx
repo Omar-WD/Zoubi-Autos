@@ -17,7 +17,7 @@ import { AiOutlineMail } from "react-icons/ai";
 
 export default function SingleProduct() {
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
   const [product, setProduct] = useState(null);
   useEffect(() => {
     axios
@@ -27,7 +27,7 @@ export default function SingleProduct() {
         console.log(err);
       });
   }, [id]);
-  console.log(product);
+  // console.log(product);
   if (!product) {
     // Handle loading or not found case
     return <div>Loading...</div>;
