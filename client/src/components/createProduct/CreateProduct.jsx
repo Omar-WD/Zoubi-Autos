@@ -96,7 +96,6 @@ function CreateProduct() {
   // });
 
   const onSubmit = (data) => {
-    console.log(data);
 
     const formData = new FormData();
     // formData.append("image",data.image[0]) code when uploading only single image
