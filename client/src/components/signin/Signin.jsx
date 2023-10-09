@@ -1,10 +1,15 @@
 import { useForm } from "react-hook-form";
-
+import { Navigate } from "react-router-dom";
 import axios from "axios";
+import { useState } from "react";
+
 
 
 
 export default function Signin() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
 
   const {
     register,
@@ -23,11 +28,14 @@ export default function Signin() {
   .post("http://localhost:3005/user/signin", formData,{
     withCredentials: true
   })
-  .then((response)=>console.log(response.data))
+  .then((response)=>{console.log(response.data);
+    setIsAuthenticated(true)})
   .catch((error)=>console.log(error))
 };
  
-
+if (isAuthenticated) {
+  return <Navigate to="/new" />;
+}
   
 
 

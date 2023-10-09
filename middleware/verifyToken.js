@@ -1,4 +1,5 @@
 const jwt = require ("jsonwebtoken")
+const ErrorResponse = require('../utils/errorResponse');
 
 const verifyToken=(req,res,next)=>{
  try {  
@@ -8,11 +9,11 @@ const verifyToken=(req,res,next)=>{
         req.user= payload
         return next ()
      } 
-     res.status(403).send("forbidden")
+     return next(new ErrorResponse('Unauthorized: No token provided', 401));
      
  } catch (error) {
     console.log("failed to verify token")
-    res.status(403).send('Forbidden');
+    return next(new ErrorResponse('Unauthorized: No token provided', 401));
  }
 }
 

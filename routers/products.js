@@ -7,7 +7,7 @@ const { verifyToken } = require('../middleware/verifyToken')
 
 const productRouter= express.Router()
 
-productRouter.post("/create",upload.array("images"),cloudinaryUpload ,createProduct)
+productRouter.post("/create",verifyToken,upload.array("images"),cloudinaryUpload ,createProduct)
 productRouter.get("/",getAllProducts)
 productRouter.get("/:id",getProductById)
 

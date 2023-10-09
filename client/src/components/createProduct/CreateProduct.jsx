@@ -145,7 +145,9 @@ function CreateProduct() {
     // };
 
     axios
-      .post("http://localhost:3005/products/create", formData)
+      .post("http://localhost:3005/products/create", formData, {
+        withCredentials: true, // Allow cookies to be sent with the request
+      })
       .then((res) => {
         console.log(res.data);
         if (res.status === 403) {

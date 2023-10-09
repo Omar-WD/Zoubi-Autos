@@ -1,9 +1,10 @@
-const cors = require("cors")
+
 require("dotenv/config")
 const express = require('express');
 require("./db")
 const {errorHandler}= require("./middleware/errorHandles")
 const cookieParser = require("cookie-parser");
+const cors = require("cors")
 const port =process.env.PORT || 3000
 
 const productRouter=require("./routers/products");
