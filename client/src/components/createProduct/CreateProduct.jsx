@@ -136,10 +136,23 @@ function CreateProduct() {
       formData.append(`ausstattung[${index}]`, item);
     });
 
+
+    // const token = "Bearer " + localStorage.getItem("access_token");
+    // const config = {
+    //   headers: {
+    //     "Authorization": token,
+    //   },
+    // };
+
     axios
-      .post("http://localhost:3005/products/create", formData)
+      .post("http://localhost:3005/products/create", formData, {
+        withCredentials: true, // Allow cookies to be sent with the request
+      })
       .then((res) => {
         console.log(res.data);
+        if (res.status === 403) {
+          window.alert("Forbidden");
+        }
       })
       .catch((err) => {
         console.log(err);

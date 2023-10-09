@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 
+
 const productSchema = new mongoose.Schema({
     marke:{type:String,enum:["Mercides","BMW","Volvo","VW"],required:true,},
     modelljahr:{type:Number, required:true},
@@ -32,4 +33,5 @@ const productSchema = new mongoose.Schema({
 
 const Product= mongoose.model("Product",productSchema)
 
-module.exports=Product
+
+module.exports= Product

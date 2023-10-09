@@ -1,7 +1,6 @@
 require("dotenv/config")
 const Product= require ("../models/products")
 
-
 const createProduct=async(req,res)=>{
     try {
         const { marke, modelljahr,kilometer,motor,energy, erstzulassung, kategorie, hubraum, anzahlSitzplatze, anzahlDerTuren, schadstoffklasse, umweltplakette, Klimatisierung, einparkhilfe, airbags, farbeHersteller, farbe, innenausstattung, verbrauch, co2Emissionen, price,owner, ausstattung,Getriebe } = req.body
