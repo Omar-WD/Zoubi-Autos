@@ -30,30 +30,40 @@ html{
 .firstSentece{
     font-weight: 900;
     position: absolute;
-    top: 50%;
-    left: 30%;
-    width: max-content;
+    /* top: 50%;
+    left: 40%; */
+    width: 100%;
     color: rgb(255, 255, 255);
     z-index: 1;
     opacity: 0;
     animation: fadeInOut 3s forwards ;
     text-shadow: 1px 1px 6px rgb(0, 0, 0);
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
     
 }
 .secondSentece{
     font-weight: 900;
     position: absolute;
-    top: 50%;
+    /* top: 50%;
     left: 30%;
-    width: 100%;
+    width: 100%; */
     color: rgb(255, 255, 255);
     z-index: 1;
     opacity: 0;
     animation: fadeInOut 3s forwards ;
     animation-delay: 3s;
     text-shadow: 1px 1px 6px rgb(0, 0, 0);
-    transform: translateY(-50%);
+    /* transform: translateY(-50%); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
    
 }
 .but{

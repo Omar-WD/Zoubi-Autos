@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Services from "./components/services/Services";
 import Contact from "./components/contact/Contact";
+import Signin from "./components/signin/Signin";
 
 function App() {
   return (
@@ -16,8 +17,9 @@ function App() {
       <Routes>
         <Route path="/gebrauchwagen" element={<ProductList />} />
         <Route path="/:id" element={<SingleProduct />} />
+        <Route path="/signin" element={<Signin />} />
         <Route path="/new" element={<CreateProduct />} />
-        <Route path="/home" element={<Services />} />
+        <Route path="/" element={<Services />} />
         <Route path="/Kontakt" element={<Contact />} />
         {/* <Route path="*" element={<NotFoud/>} />*/}
       </Routes>
