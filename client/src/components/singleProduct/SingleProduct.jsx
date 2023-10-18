@@ -44,7 +44,7 @@ export default function SingleProduct() {
           style={{ marginLeft: "auto", marginRight: "auto", marginTop: "50px" }}
         >
           <Row style={{ width: "100%", marginBottom: "70px" }}>
-            <img src="./logo.png" className="logoImg" />
+            <img src="./bc3.png" className="logoImg" />
           </Row>
 
           <Row style={{ width: "100%" }}>

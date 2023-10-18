@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./Services.css";
 import { Container, Button, Row, Col, Image } from "react-bootstrap";
 import { FaCar, FaTools } from "react-icons/fa";
@@ -8,10 +8,14 @@ import {
 
 } from "react-icons/bs";
 import Contact from "../contact/Contact";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 
 export default function Services() {
-  const [isLoading, setIsLoading] = useState(true);
+  const { isLoading } = useContext(AuthContext);
+ 
+
 
   useEffect(() => {
     function handleScroll() {
@@ -56,9 +60,7 @@ export default function Services() {
 
     }
 
-    window.addEventListener("load", () => {
-      setIsLoading(false);
-    });
+  
 
     window.addEventListener("scroll", handleScroll);
 
@@ -91,9 +93,9 @@ export default function Services() {
             <Row>
               <h1 className="serviceHeader">Über uns</h1>
             </Row>
-            <Row>
-              <Col xs={6}>
-                <h1 className="serviceHeader">El Zoobi Autohandel</h1>
+            <Row className="aboutUsIntroRow">
+              <Col xs={12} lg={6} className="aboutUsIntroCol">
+                <h1 className="serviceSubHeader">El Zoobi Autohandel</h1>
                 <p>
                   Wir heißen Sie herzlich auf unserer Website willkommen und
                   schätzen es, dass Sie den Weg zu uns gefunden haben! Wir haben
@@ -105,7 +107,7 @@ export default function Services() {
                   Finanzierung, Inzahlungnahme und Garantiefragen.
                 </p>
               </Col>
-              <Col xs={6} className="keysImgs">
+              <Col xs={12} lg={6} className="keysImgs">
                 <a href="/gebrauchwagen">
                   <Image src="7.jpg" className="keyImg1" />
                 </a>
@@ -122,13 +124,13 @@ export default function Services() {
           <Row className="serviceInner">
             <h1 className="serviceHeader">Unsere Servece</h1>
             <Row className="subService1">
-              <Col xs={5}>
+              <Col xs={12} lg={5}>
                 <h1 className="serviceTitle1">Fahrzeugverkauf</h1>
                 <h3 className="serviceSubTitle1">
                   Finden Sie bei uns Ihren Traumwagen
                 </h3>
               </Col>
-              <Col xs={6}>
+              <Col xs={12} lg={6}>
                 <p className="serviceParagraph1">
                   In unserem Autohaus finden Sie eine breite Palette von
                   Fahrzeugen zur Auswahl. Unsere Verkaufsmitarbeiter stehen
@@ -142,13 +144,13 @@ export default function Services() {
               </Col>
             </Row>
             <Row className="subService2">
-              <Col xs={5}>
+              <Col xs={12} lg={5}>
                 <h1 className="serviceTitle2">Fahrzeugankauf</h1>
                 <h3 className="serviceSubTitle2">
                   Verkaufen Sie Ihr Fahrzeug an uns
                 </h3>
               </Col>
-              <Col xs={6}>
+              <Col xs={12} lg={6}>
                 <p className="serviceParagraph2">
                   Möchten Sie Ihren gebrauchten Wagen veräußern? Bei uns sind
                   Sie an der richtigen Adresse! Besuchen Sie uns unbedingt und
@@ -164,7 +166,7 @@ export default function Services() {
         <Row className="bewertungr-Row" >
           <Row className="bewertungr-RowInner">
             <h1 className="serviceHeader">Wir bieten Ihnen</h1>
-            <Col xs={6} className="bewertungr-RowInner-left">
+            <Col xs={12} lg={6} className="bewertungr-RowInner-left">
               <Row className="iconsTextRow1">
                 <BsFillCheckCircleFill className="icon-icon" />
 
@@ -184,7 +186,7 @@ export default function Services() {
                 <h4>Autos in gutem Zustand</h4>
               </Row>
             </Col>
-            <Col xs={6}>
+            <Col xs={12} lg={6} className="bewertungen">
               <iframe
                 className="bewertungenIframe"
                 src="https://www.autoscout24.de/haendler/el-zoobi-autohandel/bewertungen"

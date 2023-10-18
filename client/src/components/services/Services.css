@@ -14,15 +14,18 @@ html{
     opacity: 1;
     overflow: hidden;
     width: 100%;
-    border-radius: 10px;
-    min-height: 100vh;
+    margin: 0px;
+    min-height: 93vh;
     padding: 0% !important;
+  
     
 }
 .heroSection img{
     width:100%;
-    max-height: 100vh;
+    max-height: 93vh;
     padding: 0% !important;
+   
+   
 
   
 }
@@ -30,20 +33,17 @@ html{
 .firstSentece{
     font-weight: 900;
     position: absolute;
-    /* top: 50%;
-    left: 40%; */
-    width: 100%;
     color: rgb(255, 255, 255);
     z-index: 1;
     opacity: 0;
     animation: fadeInOut 3s forwards ;
     text-shadow: 1px 1px 6px rgb(0, 0, 0);
-    /* transform: translateY(-50%); */
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 93vh;
+    padding: 0% !important;
     
 }
 .secondSentece{
@@ -63,7 +63,8 @@ html{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 93vh;
+    padding: 0% !important;
    
 }
 .but{
@@ -180,6 +181,8 @@ html{
     justify-content: center;
     align-items: center;
     background-color: #1E1F24;
+    margin: 0px;
+    margin-top: -1px;
 
 }
 .aboutUsInner{
@@ -242,7 +245,9 @@ html{
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.998);   
 }
 
-
+.aboutUsIntroCol p {
+    text-align: justify !important;
+}
 
 
 
@@ -289,6 +294,14 @@ html{
     width: 100%;
     position: relative;
     
+}
+.serviceSubHeader{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    width: 100%;
+
 }
 .serviceHeader::before{
     content: "";
@@ -383,25 +396,25 @@ line-height: 40px;
     }
 }
 
-.aaa{
+/* .aaa{
     animation: headmoveLR 0.5s forwards;
-}
+} */
 .bbb{
-    animation: headmoveLR 1s forwards;
+    animation: headmoveLR 0.5s forwards;
     animation-delay: 0.5s;
 }
 .ccc{
-    animation: headmoveLR 1s forwards;
-    animation-delay: 0.5s;
+    animation: headmoveLR 0.5s forwards;
+    animation-delay: 1s;
 }
 
 .eee{
-    animation: headmoveRL 1s forwards;
+    animation: headmoveRL 0.5s forwards;
     animation-delay: 0.5s;
 }
 .fff{
-    animation: headmoveRL 1.5s forwards;
-    animation-delay: 0.5s;
+    animation: headmoveRL 0.5s forwards;
+    animation-delay: 1s;
 }
 
 .bewertungenIframe{
@@ -495,5 +508,184 @@ line-height: 40px;
     animation: headmoveLR 0.5s forwards 1.5s;
 }
 
+@media only screen and (max-width: 700px) {
+    .heroSection{
+        min-height: 87vh;
+    }
+    .but h5{
+        font-size: 17px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .but{
+        padding: 0 !important;
+    }
+    .firstSentece, .secondSentece{
+        height: 100%;
+        font-weight: 600;
+        
+    }
+    .aboutUs{
+        padding-top: 0px;
+        height: 720px;
+        padding-bottom: 80px;
+    }
+    .serviceHeader{
+        font-size: xx-large;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .serviceHeader::before {
+        width: 95%;
+        
+    }
+    .serviceHeader .row{
+        flex-direction: column !important;
+    }
+    .aboutUsInner{
+        width: 98%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: justify;
+    }
+    .aboutUsInner .row{
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+    .aboutUsIntroCol{
+        margin: 0%;
+        padding: 0%;
+        width: 100%;
+    }
+    .aboutUsIntroCol .serviceHeader{
+        font-size: x-large;
+        margin-bottom: 25px;
+    }
+    .aboutUsIntroCol .serviceHeader::before{
+        display: none;
+    }
+    
+    .keyImg1, .keyImg2{
+        width: 120px;
+        height: 180px;
+        margin-top: 20px;
+    }
+    .service {
+        padding: 0%;
+    }
+    .subService1, .subService2{
+        width: 100% !important;
+        padding-bottom: 40px !important;
+        gap: 20px;
+    }
+    .serviceTitle1, .serviceTitle2{
+        margin-bottom: 0%;
+    }
+    .serviceSubTitle1, .serviceSubTitle2 {
+        font-size:1rem !important;
+        color: #6496e0;
+        font-weight: 800;
+    line-height: normal;
+    }
+    .serviceInner{
+        margin: 0%;
+        padding: 0% 5%;
+        width: 100%;
+    }
+    .bewertungr-Row{
+        padding: 0%;
+        margin: 0%;
+    }
+    .bewertungr-RowInner{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .bewertungr-RowInner-left{
+        padding-left: 0%;
+        padding-right: 0%;
+        gap: 20px;
+    }
+    .bewertungen{
+        padding: 0% !important;
+        margin: 20px 0% 30px 0% !important;
+    }
+    .bewertungr-RowInner .serviceHeader{
+        margin: 50px 0 50px 0;
+    }
+    .bewertungr-RowInner .serviceHeader::before{
+        width: 95%;
+    }
+  
+}
+@media only screen and  (min-width: 400px) and (max-width: 500px) {
+.aboutUs{
+    padding: 0px 20px;
+}
+.keyImg1,.keyImg2{
+    width: 140px;
+    height: 200px;
+}
+}
+@media only screen and  (min-width: 501px) and (max-width: 700px) {
+    .aboutUs{
+        padding: 0px 60px;
+    }
+    .keyImg1,.keyImg2{
+        width: 150px;
+        height: 200px;
+    }
+    }
+    @media only screen and  (min-width: 701px) and (max-width: 991px) {
+        .aboutUsInner{
+        width: 85%;    
+        }
+        .keyImg1,.keyImg2{
+            width: 200px;
+            height: 250px;
+            margin: 50px 0px;
+        }
+        .serviceHeader{
+            margin-top: 40px;
+        }
+        .serviceSubHeader{
+            margin-top: 0;
+            font-size: 2rem;
+        }
+        }
 
+        @media only screen and  (min-width: 992px) and (max-width: 1100px) {
 
+            .keyImg1,.keyImg2{
+                width: 165px;
+                height: 280px;
+                margin: 50px 0px;
+            }
+            .aboutUsInner{
+                width: 80%;    
+                }
+            .serviceInner{
+                width: 90%;
+            }
+            .bewertungr-RowInner{
+                width: 90%; 
+            }
+            }
+            @media only screen and  (min-width: 1101px) and (max-width: 1300px) {
+
+                .keyImg1,.keyImg2{
+                    width: 185px;
+                    height: 280px;
+                    margin: 50px 0px;
+                }
+                .aboutUsInner{
+                    width: 80%;    
+                    }
+                    .serviceInner{
+                        width: 90%;
+                    }
+                    .bewertungr-RowInner{
+                        width: 90%; 
+                    }
+                }

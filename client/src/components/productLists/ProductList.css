@@ -58,7 +58,7 @@
 }
 .productDiscription{
     align-content: center;
-    height: 70%;
+    height: 65%;
 }
 .carousel-indicators{
     display: none !important;
@@ -84,3 +84,4 @@ a:hover{
  .product-item-desc{
     height: 100%;
  }
+

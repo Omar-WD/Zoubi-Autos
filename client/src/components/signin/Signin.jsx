@@ -1,15 +1,14 @@
 import { useForm } from "react-hook-form";
-import { Navigate } from "react-router-dom";
-import axios from "axios";
-import { useState } from "react";
-
-
+// import { Navigate } from "react-router-dom";
+// import axios from "axios";
+// import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import "./Signin.css"
 
 
 export default function Signin() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-
+  const {  user, signin } = useContext(AuthContext);
 
   const {
     register,
@@ -18,44 +17,31 @@ export default function Signin() {
   } = useForm();
 
   const onSubmit = (data) => {
-    const formData={
+    const formData = {
       email: data.email,
-      password:data.password
-    }
-    console.log(formData);
-
-  axios
-  .post("http://localhost:3005/user/signin", formData,{
-    withCredentials: true
-  })
-  .then((response)=>{console.log(response.data);
-    setIsAuthenticated(true)})
-  .catch((error)=>console.log(error))
-};
- 
-if (isAuthenticated) {
-  return <Navigate to="/new" />;
-}
+      password: data.password,
+    };
   
+    signin(formData);
+  };
 
-
-    return (
-      <>
-        <h2>Signin</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            placeholder="email"
-            {...register("email", { required: true })}
-          />
-
-          <input
-            placeholder="password"
-            {...register("password", { required: true })}
-          />
-
-          <input type="submit" />
-        </form>
-      </>
-    );
+  if (user) {
+    // return <Navigate to="/new" />;
   }
-// }
+
+  return (
+    <div className="signinDiv">
+      <h2 className="signinTitle">Signin</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="signinForm">
+        <input placeholder="email" {...register("email", { required: true })} />
+
+        <input
+          placeholder="password"
+          {...register("password", { required: true })}
+        />
+
+        <input type="submit" />
+      </form>
+    </div>
+  );
+}

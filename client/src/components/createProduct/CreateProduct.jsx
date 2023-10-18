@@ -5,9 +5,14 @@ import DatePicker from "react-datepicker";
 import Select from "react-select";
 import "react-datepicker/dist/react-datepicker.css";
 import { Container, Row } from "react-bootstrap";
+import ProductList from "../productLists/ProductList"
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 function CreateProduct() {
+  const { isLoading,user } = useContext(AuthContext);
+  
   const ausstattung = [
     { label: "ABS", value: "ABS" },
     { label: "Allradantrieb", value: "Allradantrieb" },
@@ -96,7 +101,6 @@ function CreateProduct() {
   // });
 
   const onSubmit = (data) => {
-
     const formData = new FormData();
     // formData.append("image",data.image[0]) code when uploading only single image
     for (const image of data.images) {
@@ -106,12 +110,12 @@ function CreateProduct() {
       formData.append("marke", data.marke.value);
     }
     formData.append("modelljahr", data.modelljahr);
-    formData.append("Getriebe",data.Getriebe?.value||"")
+    formData.append("Getriebe", data.Getriebe.value);
     formData.append("kilometer", data.kilometer);
     formData.append("motor", data.motor);
-    formData.append("energy", data.energy?.value||"");
+    formData.append("energy", data.energy.value);
     formData.append("erstzulassung", data.erstzulassung);
-    formData.append("kategorie", data.kategorie?.value||"");
+    formData.append("kategorie", data.kategorie.value);
     formData.append("hubraum", parseFloat(data.hubraum));
     formData.append("anzahlSitzplatze", parseFloat(data.anzahlSitzplatze));
     formData.append("anzahlDerTuren", parseFloat(data.anzahlDerTuren));
@@ -136,30 +140,30 @@ function CreateProduct() {
       formData.append(`ausstattung[${index}]`, item);
     });
 
-
-    // const token = "Bearer " + localStorage.getItem("access_token");
-    // const config = {
-    //   headers: {
-    //     "Authorization": token,
-    //   },
-    // };
-
+    
+    if(!isLoading && user){
     axios
       .post("http://localhost:3005/products/create", formData, {
         withCredentials: true, // Allow cookies to be sent with the request
-      })
+      }
+      )
       .then((res) => {
         console.log(res.data);
         if (res.status === 403) {
           window.alert("Forbidden");
+        } else {
+          reset(); // Reset all form fields
         }
       })
       .catch((err) => {
         console.log(err);
       });
 
-    reset({});
+    }else{
+      window.alert("failed to create new product")
+    }
   };
+
 
   return (
     <>
@@ -226,7 +230,6 @@ function CreateProduct() {
                 {...register("kilometer", {
                   required: true,
                   pattern: /^\d+$/,
-                  
                 })}
                 title="Please enter a valid kilometer number"
               />
@@ -257,7 +260,7 @@ function CreateProduct() {
                       { value: "Benzin", label: "Benzin" },
                       { value: "Diesel", label: "Diesel" },
                       { value: "Elecetric", label: "Elecetric" },
-                      { value: "Hybird", label: "Hybird" }
+                      { value: "Hybird", label: "Hybird" },
                     ]}
                   />
                 )}
@@ -457,9 +460,9 @@ function CreateProduct() {
             ))}
           </Row>
         </Container>
-        <input type="submit" />
+        <input type="submit" className="submitBtn" />
       </form>
-
+      <ProductList/>
     </>
   );
 }
