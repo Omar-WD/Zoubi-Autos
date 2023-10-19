@@ -166,17 +166,41 @@ export default function ProductList() {
       gearMatches
     );
   });
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 992px)");
+
+    function handleMediaQueryChange(e) {
+      if (e.matches) {
+        const detailsElement = document.querySelector("details");
+        if (detailsElement) {
+          detailsElement.setAttribute("open", true);
+        }
+      }
+    }
+
+    handleMediaQueryChange(mediaQuery);
+
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
   return (
     <div className="product-list">
       <Container>
         <Row>
-          <Col xs={3} className="product-list-left-Col">
+        
+          <Col xs={12} lg={3} className="product-list-left-Col">
+          <details >
+          <summary style={{fontSize:"20px"}}>Filter</summary>
             <div className="filterDiv">
               <h4>Pries</h4>
               <Row>
                 <Col>
                   <select
+                  className="custom-select"
                     value={selectMinPrice}
                     onChange={handleMinPriceChange}
                   >
@@ -265,12 +289,16 @@ export default function ProductList() {
             >
               Clear Filter
             </Button>
+            </details>
           </Col>
 
-          <Col xs={8} className="product-list-right-Col">
+          <Col xs={12} lg={8} className="product-list-right-Col">
+            
+              
+            
             {filteredProducts.map((product) => (
               <Row key={product._id} className="productDev">
-                <Col xs={5}>
+                <Col xs={7} sm={6} lg={4}>
                   <Carousel slide={false} className="imageCarousel">
                     {product.images.map((image, index) => (
                       <Carousel.Item
@@ -286,7 +314,7 @@ export default function ProductList() {
                     ))}
                   </Carousel>
                 </Col>
-                <Col xs={7} className="product-item-desc">
+                <Col xs={5} sm={6} lg={7} className="product-item-desc">
                   <Link to={`/${product._id}`}>
                     <Row>
                       <div className="productNamePrice">

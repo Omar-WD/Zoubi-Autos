@@ -76,7 +76,7 @@ color: #1E1F24 !important;
 
 @media only screen and (max-width: 1400px) {
     .navbar-expand-xxl .navbar-nav {
-        gap: 0px !important;
+        gap: 10px !important;
     }
 }
 @media only screen and (max-width: 700px) {

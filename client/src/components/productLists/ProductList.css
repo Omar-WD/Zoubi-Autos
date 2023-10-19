@@ -54,7 +54,7 @@
     border-radius: 5px;
     block-size: 10.5rem;
     width: 100%;
-    min-width:225px; 
+    /* min-width:225px;  */
 }
 .productDiscription{
     align-content: center;
@@ -83,5 +83,49 @@ a:hover{
  }
  .product-item-desc{
     height: 100%;
+ }
+
+ @media only screen and (max-width: 450px) {
+    .product-list{
+        width: 100%;
+        margin: 0%;
+        margin-top: 20px;
+    }
+    .productNamePrice{
+        display: block;
+    }
+    .productNamePrice h5{
+        font-size: 1rem;
+    }
+    .productDiscription p{
+        font-size: small;
+    }
+    .productDev{
+        padding: 0%;
+    }
+    .productCarouselImage{
+        width: 100%;
+        min-width: 120px;
+        height: 100%;
+        max-height: 187px;
+        aspect-ratio: 1;
+    }
+    
+ }
+ @media only screen and (min-width: 451px){
+    .product-list{
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+ }
+ @media only screen and (min-width: 551px){
+    .product-list{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
  }
 
