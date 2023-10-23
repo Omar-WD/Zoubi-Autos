@@ -93,3 +93,59 @@ width: 100%;
     flex-direction: column;
     max-height: 1200px;
 }
+
+@media only screen and (max-width: 576px){
+    .singleProductleftColumn{
+        border-right: 2px solid #101114;
+    }
+    .singleProductRightColumn {
+        padding: 5px;
+        justify-content: start;
+        gap: 20px;
+    }
+    .singleProductRightColumn h2{
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        color: rgb(65, 114, 249);
+    }
+    .singleProductRightColumn h5{
+        font-size: medium;
+    }
+    .container{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2%;
+        width: 100%;
+        margin: 0%;
+    }
+    .businessCard{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .businessCard img{
+        width: 320px;
+        height: auto;
+        aspect-ratio: 2;
+    }
+    .singleProductDiv{
+        margin: 0%;
+    }
+    .pricediv h2{
+        color: white;
+        text-transform: lowercase;
+        font-size: 1.2rem;
+    }
+    .pricediv p{
+        font-size: small;
+    }
+    .callusBtn{
+        margin: 0%;
+        font-size: 0.8rem;
+    }
+    .carousel-inner{
+        border-radius: 5px;
+    }
+    .descSubProperties{
+        height: 50px;
+ }
+}

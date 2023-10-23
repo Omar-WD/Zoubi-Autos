@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Carousel from "react-bootstrap/Carousel";
-import { Container, Row, Col,Button } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./ProductList.css";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 export default function ProductList() {
+  const { isLoading, user } = useContext(AuthContext);
+ 
   const date = new Date();
   const currentYear = date.getFullYear();
   const [products, setProducts] = useState([]);
@@ -14,10 +18,10 @@ export default function ProductList() {
   const [selectMaxPrice, setSelectMaxPrice] = useState("100000000");
   const [minModellJahr, setMinModellJahr] = useState("0");
   const [maxModellJahr, setMaxModellJahr] = useState("5000");
-  const [energyOption,setEnergyOption] = useState("")
-  const [gearOption,setGearOption] = useState("")
-  const [minKM,setMinKM]= useState("0")
-  const [maxKM,setMaxKM]=useState("300000")
+  const [energyOption, setEnergyOption] = useState("");
+  const [gearOption, setGearOption] = useState("");
+  const [minKM, setMinKM] = useState("0");
+  const [maxKM, setMaxKM] = useState("3000000");
 
   useEffect(() => {
     axios
@@ -74,70 +78,72 @@ export default function ProductList() {
     </option>
   ));
   //////////////////////////////////////////////////////////////////////////
-    const handleEnergyOption=((event)=>{
-      setEnergyOption(event.target.value);
-  })
-
+  const handleEnergyOption = (event) => {
+    setEnergyOption(event.target.value);
+  };
 
   const energies = products.map((product) => product.energy);
-  const uniqueenergies=[...new Set(energies)] //filtering the array from duplicated values using Set
+  const uniqueenergies = [...new Set(energies)]; //filtering the array from duplicated values using Set
 
-
-  const KraftstoffartOption = uniqueenergies.map((energy,index) => (
+  const KraftstoffartOption = uniqueenergies.map((energy, index) => (
     <option key={index} value={energy}>
       {energy}
     </option>
   ));
 
   //////////////////////////////////////////////////////////////////////////
-  const handleGetriebeOption =((event)=>{
-    setGearOption(event.target.value)
-  })
+  const handleGetriebeOption = (event) => {
+    setGearOption(event.target.value);
+  };
 
-  const gears = products.map((product)=>product.Getriebe)
-  const uniqueGears=[...new Set(gears)] //filtering the array from duplicated values using Set
+  const gears = products.map((product) => product.Getriebe);
+  const uniqueGears = [...new Set(gears)]; //filtering the array from duplicated values using Set
 
-  const GetriebeOption=uniqueGears.map((gear,index)=>(
+  const GetriebeOption = uniqueGears.map((gear, index) => (
     <option key={index} value={gear}>
-    {gear}
-  </option>
-  ))
-//////////////////////////////////////////////////////////////////////////
-const handleMinKM=((event)=>{
-  setMinKM(event.target.value)
-})
-const handleMaxKM=((event)=>{
-  setMaxKM(event.target.value)
-})
+      {gear}
+    </option>
+  ));
+  //////////////////////////////////////////////////////////////////////////
+  const handleMinKM = (event) => {
+    setMinKM(event.target.value);
+  };
+  const handleMaxKM = (event) => {
+    setMaxKM(event.target.value);
+  };
 
+  const kilometerList = [];
+  for (let i = 10000; i < 300000; i += 10000) {
+    kilometerList.push(i);
+  }
+  const minKilometer = kilometerList.map((kilometer) => (
+    <option key={kilometer} value={kilometer}>
+      {kilometer}
+    </option>
+  ));
 
-
-const kilometerList=[]
-for (let i = 10000 ; i < 300000; i += 10000 ){
-  kilometerList.push(i)
-} 
-const minKilometer= kilometerList.map((kilometer)=>(
-  <option key={kilometer} value={kilometer}>{kilometer}</option>
-))
-
-const maxKilometer= kilometerList.map((kilometer)=>(
-  <option key={kilometer} value={kilometer}>{kilometer}</option>
-))
-
-//  console.log(kiloList); 
-
+  const maxKilometer = kilometerList.map((kilometer) => (
+    <option key={kilometer} value={kilometer}>
+      {kilometer}
+    </option>
+  ));
 
   //////////////////////////////////////////////////////////////////////////
-  // const filteredProducts = products.filter(
-  //   (product) =>
-  //     product.price >= selectMinPrice &&
-  //     product.price <= selectMaxPrice &&
-  //     product.modelljahr >= minModellJahr &&
-  //     product.modelljahr <= maxModellJahr
-  //      &&
-  //     energyOption ?product.energy === energyOption:product.energy != energyOption &&
-  //     gearOption ?product.Getriebe === gearOption:product.Getriebe != gearOption
-  // );
+
+  const handleDeleteProduct=(id)=>{
+
+      axios
+        .delete(`http://localhost:3005/products/${id}`)
+        .then((response) => {
+          console.log(response.data);
+          window.alert("Product is deleted Successfully")
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+
+  //////////////////////////////////////////////////////////////////////////
   const filteredProducts = products.filter((product) => {
     const priceInRange =
       product.price >= parseInt(selectMinPrice) &&
@@ -147,26 +153,54 @@ const maxKilometer= kilometerList.map((kilometer)=>(
       product.modelljahr <= parseInt(maxModellJahr);
     const energyMatches =
       energyOption === "" || product.energy === energyOption;
-    const gearMatches =
-      gearOption === "" || product.Getriebe === gearOption;
-    const kiloMeterRange=
-    product.kilometer >= parseInt(minKM) &&
-    product.kilometer <= parseInt(maxKM)
-  
-    return priceInRange && modellJahrInRange && kiloMeterRange && energyMatches && gearMatches;
+    const gearMatches = gearOption === "" || product.Getriebe === gearOption;
+    const kiloMeterRange =
+      product.kilometer >= parseInt(minKM) &&
+      product.kilometer <= parseInt(maxKM);
+
+    return (
+      priceInRange &&
+      modellJahrInRange &&
+      kiloMeterRange &&
+      energyMatches &&
+      gearMatches
+    );
   });
-  
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 992px)");
+
+    function handleMediaQueryChange(e) {
+      if (e.matches) {
+        const detailsElement = document.querySelector("details");
+        if (detailsElement) {
+          detailsElement.setAttribute("open", true);
+        }
+      }
+    }
+
+    handleMediaQueryChange(mediaQuery);
+
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
   return (
     <div className="product-list">
       <Container>
         <Row>
-          <Col xs={3} className="product-list-left-Col">
+        
+          <Col xs={12} lg={3} className="product-list-left-Col">
+          <details >
+          <summary style={{fontSize:"20px"}}>Filter</summary>
             <div className="filterDiv">
               <h4>Pries</h4>
               <Row>
                 <Col>
                   <select
+                  className="custom-select"
                     value={selectMinPrice}
                     onChange={handleMinPriceChange}
                   >
@@ -213,7 +247,7 @@ const maxKilometer= kilometerList.map((kilometer)=>(
                 </Col>
                 <Col>
                   <select value={maxKM} onChange={handleMaxKM}>
-                    <option value="300000">bis</option>
+                    <option value="3000000">bis</option>
                     <option value="5000">5000</option>
                     {maxKilometer}
                   </select>
@@ -223,7 +257,7 @@ const maxKilometer= kilometerList.map((kilometer)=>(
             <div className="filterDiv">
               <h4>Kraftstoffart</h4>
               <Row>
-                <Col >
+                <Col>
                   <select value={energyOption} onChange={handleEnergyOption}>
                     <option value="">alle</option>
                     {KraftstoffartOption}
@@ -234,7 +268,7 @@ const maxKilometer= kilometerList.map((kilometer)=>(
             <div className="filterDiv">
               <h4>Getriebe</h4>
               <Row>
-                <Col >
+                <Col>
                   <select value={gearOption} onChange={handleGetriebeOption}>
                     <option value="">alle</option>
                     {GetriebeOption}
@@ -242,13 +276,29 @@ const maxKilometer= kilometerList.map((kilometer)=>(
                 </Col>
               </Row>
             </div>
-            <Button onClick={()=>{setGearOption(""), setEnergyOption(""),setMinModellJahr("1100"),setMaxModellJahr("5000"),setSelectMinPrice("0"),setSelectMaxPrice("1000000"),setMinKM("0",setMaxKM("300000"))}}>Clear Filter</Button>
+            <Button
+              onClick={() => {
+                setGearOption(""),
+                  setEnergyOption(""),
+                  setMinModellJahr("1100"),
+                  setMaxModellJahr("5000"),
+                  setSelectMinPrice("0"),
+                  setSelectMaxPrice("10000000"),
+                  setMinKM("0", setMaxKM("3000000"));
+              }}
+            >
+              Clear Filter
+            </Button>
+            </details>
           </Col>
 
-          <Col xs={8} className="product-list-right-Col">
+          <Col xs={12} lg={8} className="product-list-right-Col">
+            
+              
+            
             {filteredProducts.map((product) => (
               <Row key={product._id} className="productDev">
-                <Col xs={5}>
+                <Col xs={7} sm={6} lg={4}>
                   <Carousel slide={false} className="imageCarousel">
                     {product.images.map((image, index) => (
                       <Carousel.Item
@@ -264,7 +314,7 @@ const maxKilometer= kilometerList.map((kilometer)=>(
                     ))}
                   </Carousel>
                 </Col>
-                <Col xs={7} className="product-item-desc">
+                <Col xs={5} sm={6} lg={7} className="product-item-desc">
                   <Link to={`/${product._id}`}>
                     <Row>
                       <div className="productNamePrice">
@@ -281,6 +331,15 @@ const maxKilometer= kilometerList.map((kilometer)=>(
                       </p>
                     </Row>
                   </Link>
+                  {!isLoading && user ? (
+                    <Row className="update-delete-btns">
+                      <Col className="deleteBtn">
+                        <button id="deleteBtn" onClick={()=>{handleDeleteProduct(product._id)}}>Delete</button>
+                      </Col>
+                    </Row>
+                  ) : (
+                    ""
+                  )}
                 </Col>
               </Row>
             ))}

@@ -39,3 +39,34 @@
         transform: translateX(0);
     }
 }
+
+@media only screen and (max-width: 700px) {
+    .map-RowInner{
+        width: 100%;
+        margin: 0%;
+        padding: 0%;
+    }
+    .map-RowInner .serviceHeader{
+        margin: 50px 0px 50px 0px;
+    }
+    .map-Row{
+        margin: 0%;
+        padding: 0%;
+    }
+    .map-RowInner-Right{
+        padding: 30px 5%;
+    }
+    .map-RowInner-Right h4{
+        font-size: large;
+    }
+    .mapIframe{
+        height: 300px;
+ 
+    }
+}
+@media only screen and (min-width: 401px) and (max-width: 700px) {
+    .map-Row{
+     
+        padding: 5%;
+    }
+}

@@ -47,13 +47,13 @@ export default function Contact() {
   return (
     <Row className="map-RowInner">
       <h1 className="serviceHeader">Kontakt</h1>
-      <Col xs={6}>
+      <Col xs={12} lg={6}>
         <iframe
           className="mapIframe"
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d993.8695986094704!2d8.571420097371002!3d52.03835955364296!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ba3d18c28cc877%3A0xbeb282401f1bcf6b!2sEl%20Zoobi%20Autohandel!5e0!3m2!1sen!2sde!4v1696609365197!5m2!1sen!2sde"
         ></iframe>
       </Col>
-      <Col xs={6} className="map-RowInner-Right">
+      <Col xs={12} lg={6} className="map-RowInner-Right">
         <Row className="iconsTextRow5">
           <BsFillPersonFill className="icon-icon" />
           <h4>Eigentümer: Marwan El Zoobi</h4>

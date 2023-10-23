@@ -40,14 +40,16 @@ export default function SingleProduct() {
     <div>
       <Container className="container">
         <Col
-          xs={9}
+          xs={12}
+          sm={11}
+          lg={9}
           style={{ marginLeft: "auto", marginRight: "auto", marginTop: "50px" }}
         >
-          <Row style={{ width: "100%", marginBottom: "70px" }}>
-            <img src="./logo.png" className="logoImg" />
+          <Row className="businessCard" style={{ width: "100%", marginBottom: "70px" }}>
+            <img src="./bc3.png" className="logoImg" />
           </Row>
 
-          <Row style={{ width: "100%" }}>
+          <Row className="singleProductDiv" style={{ width: "100%" }}>
             <Col xs={8} className="singleProductleftColumn">
               <Row>
                 <Carousel slide={false} className="singleImgCarousel">
@@ -162,11 +164,12 @@ export default function SingleProduct() {
             <Col xs={4} className="singleProductRightColumn">
               <div>
                 <h2>
-                  {product.marke} {product.kategorie}
+                  {product.marke}
                 </h2>
-                <h5>Kraftstoffart:{product.energy}</h5>
+                <h5>{product.kategorie}</h5>
+                <h5>{product.energy}</h5>
               </div>
-              <div>
+              <div className="pricediv">
                 <h2>Preis: {product.price} €</h2>
                 <p>{Math.round(product.price / 1.19)} € (Netto), 19%</p>
               </div>

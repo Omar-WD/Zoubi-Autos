@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken")
 const cookieParser = require("cookie-parser")
 
 
+
+
 const signup = async (req, res, next) => {
     try {
         const { email, password} = req.body
@@ -39,13 +41,27 @@ const signin = async (req, res, next) => {
 
 const signout = async (req, res, next) => {
     try {
-        res.cookie("access_token", "", { maxage: 1 })
+        res.clearCookie("access_token");
         res.status(200).send("signed out successfully")
     } catch (error) {
         next(error);
     }
 }
 
+const getProfile = async (req, res) => {
+    try {
+       const {id} = req.user
+       
+        const user = await User.findById(id)
+        res.status(200).json(user)
+
+    } catch (error) {
+       res.status(401).json(error.message)
+    }
+}
 
 
-module.exports={signup, signin, signout}
+
+module.exports={signup, signin, signout,getProfile}
+
+
