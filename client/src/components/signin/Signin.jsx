@@ -36,6 +36,7 @@ export default function Signin() {
         <input placeholder="email" {...register("email", { required: true })} />
 
         <input
+        type="password"
           placeholder="password"
           {...register("password", { required: true })}
         />

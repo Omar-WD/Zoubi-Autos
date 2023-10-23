@@ -112,7 +112,7 @@ export default function Services() {
                   <Image src="7.jpg" className="keyImg1" />
                 </a>
 
-                <a href="">
+                <a href="#kontakt">
                   <Image src="8.jpg" className="keyImg2" />
                 </a>
               </Col>
