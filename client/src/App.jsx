@@ -10,6 +10,7 @@ import Contact from "./components/contact/Contact";
 import Signin from "./components/signin/Signin";
 import AuthProvider from './context/AuthProvider';
 import ProtectedRoutes from "./ProtectedRoutes";
+import PageNotFound from "./components/pageNotFound/PageNotFound";
 
 function App() {
 
@@ -27,10 +28,12 @@ function App() {
         <Route index element={<CreateProduct />} />
         </Route>
         <Route path="/" element={<Services />} />
-        {/* <Route path="/new" element={<CreateProduct />} /> */}
-    
-        {/* <Route path="*" element={<NotFoud/>} />*/}
+        <Route path="*" element={<PageNotFound/>} />
       </Routes>
+      <div style={{position:"absolute",width:"100%",marginTop:"100px",color:"lightGray", textAlign:"center"}}>
+      <p style={{lineHeight:"5px", fontSize:"11px"}}>Copyright © 2023 - All Right Reserved.</p>
+      <p style={{lineHeight:"5px", fontSize:"11px"}}>Designed & developed by <span style={{color:"white",fontWeight:"bold"}}>Omar Al Zoubi</span></p>
+      </div>
       </AuthProvider>
     </BrowserRouter>
   );

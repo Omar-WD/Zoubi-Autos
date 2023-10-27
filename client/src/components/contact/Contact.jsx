@@ -60,7 +60,7 @@ export default function Contact() {
         </Row>
         <Row className="iconsTextRow6">
           <BsFillTelephoneFill className="icon-icon" />
-          <h4>Tel: +491725777558</h4>
+          <h4>Tel: +4952138401055</h4>
         </Row>
         <Row className="iconsTextRow7">
           <FaWhatsapp className="icon-icon" />
@@ -68,7 +68,7 @@ export default function Contact() {
         </Row>
         <Row className="iconsTextRow8">
           <MdEmail className="icon-icon" />
-          <h4>Mail: @gmail.com</h4>
+          <h4>Mail: el_zoobi@hotmail.de</h4>
         </Row>
         <Row className="iconsTextRow9">
           <MdLocationOn className="icon-icon" />

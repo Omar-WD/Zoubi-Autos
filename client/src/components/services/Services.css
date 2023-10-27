@@ -13,15 +13,25 @@ html {
   overflow: hidden;
   width: 100%;
   margin: 0px;
-  min-height: 93vh;
+  min-height: 90vh;
   padding: 0% !important;
+  max-height: 90vh;
+  
 }
 .heroSection img {
-  width: 100%;
-  max-height: 93vh;
+  /* overflow-x: hidden; */
+  width: auto !important;
+  /* min-height: none; */
+  /* max-height: 90vh; */
   padding: 0% !important;
+  overflow:hidden;
 }
-
+.aboutUsIntroRow p{
+font-size: 1.4rem;
+}
+.aboutUsIntroRow h1{
+  font-size: 2rem;
+  }
 .firstSentece {
   font-weight: 900;
   position: absolute;
@@ -65,24 +75,33 @@ html {
   z-index: 1;
   opacity: 0;
   animation: fadeIn 3s forwards;
-  animation-delay: 6s;
+  /* animation-delay: 1.5s; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-shadow: 1px 1px 6px rgb(0, 0, 0);
   transform: translateY(-50%);
+  
 }
+/* .but h1, .but h5{
+  color: orangered !important;
+} */
 
 .heroButton{
   animation: beat1 3s ease-in-out infinite;
-  text-shadow: none !important;
   color: white !important;
+  /* background: linear-gradient(to right, orange,orangered) !important; */
+  background-color: orangered;
+  border: 3px ridge white !important;
+  border-radius: 20px;
 }
 
 .heroButton:hover {
     color: white !important;
-        letter-spacing: 3px;
+    background-color: rgb(255, 30, 0) !important;
+    border: rgb(255, 255, 255) 3px solid !important;
+    transition: 0.5s ease-out;
   }
 @keyframes beat1 {
   0% {
@@ -129,13 +148,13 @@ html {
 }
 @keyframes mixBlend {
   0% {
-    opacity: 0.6;
+    /* opacity: 0.6; */
 
     filter: blur(0.1px);
   }
 
   100% {
-    opacity: 1;
+    /* opacity: 1; */
 
     filter: blur(0px);
   }
@@ -226,10 +245,9 @@ html {
   background-color: #101114;
   min-height: 300px;
   margin: 0%;
-  margin-top: 60px;
+  margin-top: -1px;
   padding: 50px 40px;
   width: 100%;
-  border-radius: 5px;
   position: relative;
 }
 .serviceInner {
@@ -289,7 +307,7 @@ html {
 }
 
 .serviceTitle1 {
-  color: #0d6efd;
+  color: orangered;
   line-height: 50px;
   font-weight: 700;
   width: auto;
@@ -304,6 +322,10 @@ html {
   overflow: hidden;
   overflow-x: hidden;
 }
+.subService1 img{
+  width: 100%;
+  height: auto;
+}
 
 .subService2 {
   min-height: 300px;
@@ -315,7 +337,7 @@ html {
   flex-direction: row-reverse;
 }
 .serviceTitle2 {
-  color: #0d6efd;
+  color: orangered;
   line-height: 50px;
   font-weight: 700;
   width: auto;
@@ -333,6 +355,8 @@ html {
 .serviceParagraph1 {
   text-align: justify;
   line-height: 40px;
+  word-spacing: 3px;
+  font-size: 1.13rem;
 }
 .serviceParagraph2 {
   text-align: justify;
@@ -426,13 +450,14 @@ html {
   padding: 7px;
   margin: 5px;
   border-radius: 50%;
-  background-color: #0d6efd;
+  background-color: orangered;
 }
 
 .iconsTextRow1,
 .iconsTextRow2,
 .iconsTextRow3,
-.iconsTextRow4 {
+.iconsTextRow4,
+.iconsTextRow20 {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -449,24 +474,29 @@ html {
 }
 
 .c8 {
-  animation: headmoveLR 0.5s forwards;
+  animation: headmoveLR 0.75s forwards;
 }
 
 .c9 {
-  animation: headmoveLR 0.5s forwards 0.5s;
+  animation: headmoveLR 0.75s forwards 0.75s;
 }
 
 .c10 {
-  animation: headmoveLR 0.5s forwards 1s;
+  animation: headmoveLR 0.75s forwards 1.5s;
 }
 
 .c11 {
-  animation: headmoveLR 0.5s forwards 1.5s;
+  animation: headmoveLR 0.75s forwards 2.25s;
+}
+.c20 {
+  animation: headmoveLR 0.75s forwards 3s;
 }
 
 @media only screen and (max-width: 700px) {
   .heroSection {
-    min-height: 87vh;
+    min-height: 500px;
+    /* margin: 0px 1% 1% 1%; */
+    width: 100%;
   }
   .but h5 {
     font-size: 17px;
@@ -483,9 +513,17 @@ html {
   }
   .aboutUs {
     padding-top: 0px;
-    height: 720px;
+    height: fit-content;
     padding-bottom: 80px;
   }
+  .aboutUsIntroRow p{
+    font-size: 1.13rem;
+    line-height: 30px;
+    padding: 12px;
+    }
+    .aboutUsIntroRow h1{
+      font-size: 1.4rem;
+      }
   .serviceHeader {
     font-size: xx-large;
     margin-top: 20px;
@@ -543,7 +581,7 @@ html {
   .serviceSubTitle1,
   .serviceSubTitle2 {
     font-size: 1rem !important;
-    color: #6496e0;
+    color: white !important;
     font-weight: 800;
     line-height: normal;
   }
@@ -554,12 +592,14 @@ html {
   }
   .bewertungr-Row {
     padding: 0%;
+    padding-bottom: 20px;
     margin: 0%;
   }
   .bewertungr-RowInner {
     width: 95%;
     margin-left: auto;
     margin-right: auto;
+
   }
   .bewertungr-RowInner-left {
     padding-left: 0%;
@@ -585,6 +625,13 @@ html {
   .keyImg2 {
     width: 140px;
     height: 200px;
+  }
+  .heroSection img {
+    /* width: 100%; */
+    overflow-x: hidden !important;
+
+    /* max-height: 90vh; */
+    padding: 0% !important;
   }
 }
 @media only screen and (min-width: 501px) and (max-width: 700px) {
@@ -659,7 +706,7 @@ html {
         font-size: 2rem !important;
       }
       .heroButton{
-        width: 450px;
+        width: 400px;
         font-size: x-large;
         font-weight: 700;
       }
@@ -692,4 +739,20 @@ html {
         font-weight: 700;
       }
     
+}
+@media only screen and (min-width: 701px) and (max-width: 800px) {
+
+    .heroButton{
+      width: 250px;
+      font-size: large;
+      font-weight: 700;
+    }
+  
+}
+@media only screen and (min-width: 501px) and (max-width: 700px) {
+
+  .heroButton{
+    width: 200px;
+  }
+
 }
