@@ -4,18 +4,20 @@ const express = require('express');
 require("./db")
 const {errorHandler}= require("./middleware/errorHandles")
 const cookieParser = require("cookie-parser");
+const path = require('path');
+const app = express();
 const cors = require("cors")
 const port =process.env.PORT || 3000
-
 const productRouter=require("./routers/products");
 const authRouter = require("./routers/auth");
 
+
+
+
+
+
 app.use(express.static(path.join(__dirname, "client", "dist")))
 
-
-
-
-const app = express();
 app.use(cookieParser());
 app.use(express.json())
 app.use(cors({
@@ -24,8 +26,8 @@ app.use(cors({
 }))
 
 
-app.use("/user",authRouter)
-app.use("/products",productRouter)
+app.use("/api/user",authRouter)
+app.use("/api/products",productRouter)
 
 app.get("*", (req, res)=>{
     res.sendFile(path.join(__dirname, "client", "dist", "index.html" ))
