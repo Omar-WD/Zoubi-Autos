@@ -276,7 +276,7 @@ export default function ProductList() {
                 </Col>
               </Row>
             </div>
-            <Button
+            <Button className="clearFilterBtn"
               onClick={() => {
                 setGearOption(""),
                   setEnergyOption(""),

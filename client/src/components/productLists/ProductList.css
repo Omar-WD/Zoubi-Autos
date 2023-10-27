@@ -18,6 +18,19 @@
     margin:40px 0;
     padding: 0%;
 }
+.clearFilterBtn{
+    color: white !important;
+  /* background: linear-gradient(to right, orange,orangered) !important; */
+  background-color: orangered !important;
+  border: 3px solid transparent !important;
+  width: 90%;
+  max-width: 300px;
+}
+.clearFilterBtn:hover{
+    color: rgb(255, 85, 0) !important;
+    background-color: transparent !important;
+    border: rgb(255, 85, 0) 3px solid !important;
+}
 .product-list-left-Col select {
     width: 90%;
     margin-right: 5px;
@@ -79,7 +92,7 @@ a{
 }
 a:hover{
     text-decoration: none !important;
-    color: rgba(85, 120, 215, 0.986) !important; 
+    color: orangered !important; 
  }
  .product-item-desc{
     height: 100%;

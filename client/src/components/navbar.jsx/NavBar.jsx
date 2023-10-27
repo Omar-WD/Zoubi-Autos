@@ -46,7 +46,9 @@ export default function NavBar() {
     <Navbar expand="xxl" className="Navbar">
       <Container className="NavbarCountainer">
         <Navbar.Brand as={Link} to="/" className="logoBox">
-          <img src="./logo6.png" alt="logo" className="logo" />
+          <img src="./logo20.png" alt="logo" className="logo" />
+          {/* <h2 style={{color:"white", fontFamily:"fantasy", lineHeight:"28px", textAlign:"center"}}>EL ZOOBI AUTOHANDEL</h2> */}
+          {/* <h5 style={{color:"white", fontFamily:"-moz-initial", lineHeight:"28px", textAlign:"center"}}>AN- UND VERKAUF VON GEBRAUCHWAGEN</h5> */}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" style={{backgroundColor:"white"}} />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -58,7 +60,7 @@ export default function NavBar() {
               Gebrauchtwagen-angebote
             </Nav.Link>
             <Nav.Link as={Link} to={{ pathname: "/", hash: "über-uns" }} className="nav-link">
-              Über Uns
+             Über mich
             </Nav.Link>
             <NavDropdown title="Kontakt" className="KontaktDropDown" id="basic-nav-dropdown" menuVariant="dark">
               <NavDropdown.Item href="tel:+495219876303">Mobil Telefonieren</NavDropdown.Item>
