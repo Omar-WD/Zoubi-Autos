@@ -25,7 +25,7 @@ export default function ProductList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get("http://localhost:3005/products")
       .then((response) => {
         setProducts(response.data);
       })
@@ -133,7 +133,7 @@ export default function ProductList() {
   const handleDeleteProduct=(id)=>{
 
       axios
-        .delete(`http://localhost:3005/api/products/${id}`)
+        .delete(`http://localhost:3005/products/${id}`)
         .then((response) => {
           console.log(response.data);
           window.alert("Product is deleted Successfully")
@@ -276,7 +276,7 @@ export default function ProductList() {
                 </Col>
               </Row>
             </div>
-            <Button
+            <Button className="clearFilterBtn"
               onClick={() => {
                 setGearOption(""),
                   setEnergyOption(""),
