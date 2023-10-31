@@ -26,8 +26,8 @@ app.use(cors({
 }))
 
 
-app.use("/user",authRouter)
-app.use("/products",productRouter)
+app.use("/api/user",authRouter)
+app.use("/api/products",productRouter)
 
 app.get("*", (req, res)=>{
     res.sendFile(path.join(__dirname, "client", "dist", "index.html" ))
