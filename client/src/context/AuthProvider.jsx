@@ -13,7 +13,7 @@ export default function AuthProvider({children}) {
 
   useEffect(()=>{
     axios
-    .get("http://localhost:3005/user/profile", {
+    .get("http://localhost:3005/api/user/profile", {
       withCredentials: true,
     })
     .then((response)=>{
@@ -28,7 +28,7 @@ export default function AuthProvider({children}) {
 
   const signin = (formData) => {
     axios
-      .post("http://localhost:3005/user/signin", formData,{
+      .post("http://localhost:3005/api/user/signin", formData,{
         withCredentials: true
       })
       .then((response) => {
@@ -47,7 +47,7 @@ export default function AuthProvider({children}) {
   const signout = () => {
     setIsLoading(false);
     axios
-      .post("http://localhost:3005/user/signout", null, {
+      .post("http://localhost:3005/api/user/signout", null, {
         withCredentials: true,
       })
       .then(() => {
