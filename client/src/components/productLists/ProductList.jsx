@@ -25,7 +25,7 @@ export default function ProductList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/products")
+      .get("http://localhost:3005/api/products")
       .then((response) => {
         setProducts(response.data);
       })
