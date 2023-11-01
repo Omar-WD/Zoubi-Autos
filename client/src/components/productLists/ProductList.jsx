@@ -28,6 +28,7 @@ export default function ProductList() {
       .get("http://localhost:3005/api/products")
       .then((response) => {
         setProducts(response.data);
+       
       })
       .catch((err) => {
         console.log(err);

@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, "client", "dist")))
 app.use(cookieParser());
 app.use(express.json())
 app.use(cors({
-    origin: 'https://elzoobiautohandel.onrender.com',
+    origin: ['https://elzoobiautohandel.onrender.com', '*', 'http://localhost:5173'],
     credentials: true
 }))
 
