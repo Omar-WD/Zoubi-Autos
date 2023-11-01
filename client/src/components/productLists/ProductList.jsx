@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axiosClient from "axios";
+import { axiosClient } from "../../axiosClient";
 import Carousel from "react-bootstrap/Carousel";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
