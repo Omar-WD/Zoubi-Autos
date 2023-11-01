@@ -8,11 +8,9 @@ cloudinary.config({
 
 const cloudinaryUpload= async(req,res,next)=>{
     try {
-        // const{file}=req
-        // const result = await cloudinary.v2.uploader.unsigned_upload(file.path,"yvoewdof")
-        // result.localPath = file.path
+      
 
-        const files = req.files; // Get the array of uploaded files
+        const files = req.files; 
         const results = await Promise.all(
             files.map(async (file) => {
                 const result = await cloudinary.v2.uploader.unsigned_upload(file.path, "yvoewdof");
