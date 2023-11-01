@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { axiosClient } from "../axiosClient";
 export const AuthContext = createContext();
 
 export default function AuthProvider({children}) {
@@ -12,10 +12,8 @@ export default function AuthProvider({children}) {
 
 
   useEffect(()=>{
-    axios
-    .get("http://localhost:3005/api/user/profile", {
-      withCredentials: true,
-    })
+    axiosClient
+    .get("/user/profile")
     .then((response)=>{
       setUser(response.data)
       setIsLoading(false);
@@ -27,8 +25,8 @@ export default function AuthProvider({children}) {
   },[])
 
   const signin = (formData) => {
-    axios
-      .post("http://localhost:3005/api/user/signin", formData,{
+    axiosClient
+      .post("/user/signin", formData,{
         
         withCredentials: true
       })
@@ -47,8 +45,8 @@ export default function AuthProvider({children}) {
 
   const signout = () => {
     setIsLoading(false);
-    axios
-      .post("http://localhost:3005/api/user/signout", null, {
+    axiosClient
+      .post("/user/signout", null, {
         withCredentials: true,
       })
       .then(() => {
