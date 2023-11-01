@@ -143,7 +143,7 @@ function CreateProduct() {
     
     if(!isLoading && user){
     axios
-      .post("http://localhost:3005/products/create", formData, {
+      .post("http://localhost:3005/api/products/create", formData, {
         withCredentials: true, // Allow cookies to be sent with the request
       }
       )

@@ -25,9 +25,10 @@ export default function ProductList() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3005/products")
+      .get("http://localhost:3005/api/products")
       .then((response) => {
         setProducts(response.data);
+       
       })
       .catch((err) => {
         console.log(err);
@@ -133,7 +134,7 @@ export default function ProductList() {
   const handleDeleteProduct=(id)=>{
 
       axios
-        .delete(`http://localhost:3005/products/${id}`)
+        .delete(`http://localhost:3005/api/products/${id}`)
         .then((response) => {
           console.log(response.data);
           window.alert("Product is deleted Successfully")
