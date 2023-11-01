@@ -21,7 +21,7 @@ export default function SingleProduct() {
   const [product, setProduct] = useState(null);
   useEffect(() => {
     axiosClient
-      .get(`http://localhost:3005/api/products/${id}`)
+      .get(`/products/${id}`)
       .then((response) => setProduct(response.data))
       .catch((err) => {
         console.log(err);
