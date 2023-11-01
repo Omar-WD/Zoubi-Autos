@@ -26,10 +26,7 @@ export default function AuthProvider({children}) {
 
   const signin = (formData) => {
     axiosClient
-      .post("/user/signin", formData,{
-        
-        withCredentials: true
-      })
+      .post("/user/signin", formData)
       .then((response) => {
         setUser(response.data);
         setIsLoading(false);
@@ -46,9 +43,7 @@ export default function AuthProvider({children}) {
   const signout = () => {
     setIsLoading(false);
     axiosClient
-      .post("/user/signout", null, {
-        withCredentials: true,
-      })
+      .post("/user/signout", null)
       .then(() => {
         setUser(null);
         navigate("/");
