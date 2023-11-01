@@ -16,6 +16,7 @@ const authRouter = require("./routers/auth");
 
 
 
+
 app.use(express.static(path.join(__dirname, "client", "dist")))
 
 app.use(cookieParser());
