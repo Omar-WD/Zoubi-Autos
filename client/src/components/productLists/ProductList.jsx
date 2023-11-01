@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import axiosClient from "axios";
 import Carousel from "react-bootstrap/Carousel";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -24,11 +24,11 @@ export default function ProductList() {
   const [maxKM, setMaxKM] = useState("3000000");
 
 
-  const baseURL = "https://elzoobiautohandel.onrender.com";
+  
 
   useEffect(() => {
-    axios
-      .get(`${baseURL}/api/products`)
+    axiosClient
+      .get(`/products`)
       .then((response) => {
         setProducts(response.data);
        
@@ -136,7 +136,7 @@ export default function ProductList() {
 
   const handleDeleteProduct=(id)=>{
 
-      axios
+      axiosClient
         .delete(`/products/${id}`)
         .then((response) => {
           console.log(response.data);
