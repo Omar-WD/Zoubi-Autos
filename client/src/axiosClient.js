@@ -1,6 +1,11 @@
+// axiosClient.js
 import axios from "axios";
 
-export const axiosClient = axios.create({
-  baseURL: (import.meta.env.VITE_BE_URL || "") + "/api",
+const baseURL = window.REACT_APP_VITE_BE_URL || "https://elzoobiautohandel.onrender.com";
+
+const axiosClient = axios.create({
+  baseURL: baseURL + "/api",
   withCredentials: true,
 });
+
+export { axiosClient }; // Export axiosClient
