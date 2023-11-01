@@ -23,9 +23,12 @@ export default function ProductList() {
   const [minKM, setMinKM] = useState("0");
   const [maxKM, setMaxKM] = useState("3000000");
 
+
+  const baseURL = "https://elzoobiautohandel.onrender.com";
+
   useEffect(() => {
     axios
-      .get("http://localhost:3005/api/products")
+      .get(`${baseURL}/api/products`)
       .then((response) => {
         setProducts(response.data);
        
