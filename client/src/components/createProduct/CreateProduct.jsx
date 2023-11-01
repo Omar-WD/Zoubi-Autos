@@ -1,4 +1,3 @@
-import axios from "axios";
 import "./CreateProduct.css";
 import { useForm, Controller } from "react-hook-form";
 import DatePicker from "react-datepicker";
@@ -9,6 +8,7 @@ import ProductList from "../productLists/ProductList"
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import { axiosClient } from "../../axiosClient";
 
 function CreateProduct() {
   const { isLoading,user } = useContext(AuthContext);
@@ -142,7 +142,7 @@ function CreateProduct() {
 
     
     if(!isLoading && user){
-    axios
+    axiosClient
       .post("http://localhost:3005/api/products/create", formData, {
         withCredentials: true, // Allow cookies to be sent with the request
       }

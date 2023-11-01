@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
@@ -14,13 +13,14 @@ import { GiCarDoor } from "react-icons/gi";
 import { MdOutlineAirlineSeatReclineNormal } from "react-icons/md";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { AiOutlineMail } from "react-icons/ai";
+import { axiosClient } from "../../axiosClient";
 
 export default function SingleProduct() {
   const { id } = useParams();
   // console.log(id);
   const [product, setProduct] = useState(null);
   useEffect(() => {
-    axios
+    axiosClient
       .get(`http://localhost:3005/api/products/${id}`)
       .then((response) => setProduct(response.data))
       .catch((err) => {
