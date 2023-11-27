@@ -15,12 +15,11 @@ jobs:
 
       - name: Use Node.js
         uses: actions/setup-node@v4
-        with: node-version: 0.8.x
+        with:
+          node-version: 'lts'
 
       - name: Clear npm cache
-         run: npm cache clean --force
-
-
+        run: npm cache clean --force
 
       - name: Install Dependencies
         run: npm install
