@@ -1,7 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { axiosClient } from "../axiosClient";
+import PropTypes from 'prop-types';
 export const AuthContext = createContext();
+
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default function AuthProvider({children}) {
   const [user, setUser] = useState();
