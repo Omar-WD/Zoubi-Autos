@@ -148,7 +148,7 @@ function CreateProduct() {
       }
       )
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.status === 403) {
           window.alert("Forbidden");
         } else {
