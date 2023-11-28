@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "client", "dist")))
 app.use(cookieParser());
 app.use(express.json())
 app.use(cors({
-    origin: ['https://elzoobiautohandel.onrender.com', '*', 'http://localhost:5173'],
+    origin: ['https://elzoobiautohandel.onrender.com', 'http://localhost:5173', 'https://a.radwantravel.com'],
     credentials: true
 }))
 
