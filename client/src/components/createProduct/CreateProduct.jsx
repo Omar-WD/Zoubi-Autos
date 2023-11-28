@@ -8,7 +8,8 @@ import ProductList from "../productLists/ProductList"
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
-import { axiosClient } from "../../axiosClient";
+// import { axiosClient } from "../../axiosClient";
+import axios from "axios";
 
 function CreateProduct() {
   const { isLoading,user } = useContext(AuthContext);
@@ -142,13 +143,13 @@ function CreateProduct() {
 
     
     if(!isLoading && user){
-    axiosClient
-      .post("/products/create", formData, {
+    axios
+      .post("https://elzoobiautohandel.onrender.com/api/products/create", formData, {
         withCredentials: true, // Allow cookies to be sent with the request
       }
       )
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         if (res.status === 403) {
           window.alert("Forbidden");
         } else {
