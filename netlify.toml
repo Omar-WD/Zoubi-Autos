@@ -1,6 +1,6 @@
-[build]
-  command = "cd client && npm ci && npm run build && cd ../ && npm ci && npm start"
-  node_version = "14"
+# [build]
+#   command = "cd client && npm ci && npm run build && cd ../ && npm ci && npm start"
+#   node_version = "14"
 
-[build.environment]
-  NPM_VERSION = "latest"
+# [build.environment]
+#   NPM_VERSION = "latest"
