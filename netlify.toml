@@ -1,2 +1,6 @@
 [build]
   command = "cd client && npm ci && npm run build && cd ../ && npm ci && npm start"
+  publish = "./client/dist"  # Adjust this path based on your project structure
+
+[build.environment]
+  NODE_VERSION = "14"
