@@ -1,2 +1,2 @@
 [build]
-  command = "cd client && npm i && npm run build && cd ../ && npm i && npm start"
+  command = "cd client && npm ci && npm run build && cd ../ && npm ci && npm start"
