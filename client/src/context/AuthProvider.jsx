@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { axiosClient } from "../axiosClient";
 import PropTypes from 'prop-types';
+import axios from "axios";
 export const AuthContext = createContext();
 
 
@@ -30,8 +31,8 @@ export default function AuthProvider({children}) {
   },[])
 
   const signin = (formData) => {
-    axiosClient
-      .post("/user/signin", formData)
+    axios
+      .post("https://elzoobiautohandel.onrender.com/api/user/signin", formData)
       .then((response) => {
         setUser(response.data);
         setIsLoading(false);
