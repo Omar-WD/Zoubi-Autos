@@ -35,7 +35,7 @@ const signin = async (req, res, next) => {
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "500m" })
         res.cookie("access_token", token, { maxage: 500 * 6000, httpOnly: true, }).json(payload)
     } catch (error) {
-        next(error);
+        next(error); 
     }
 }
 
