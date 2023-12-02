@@ -32,8 +32,8 @@ const signin = async (req, res, next) => {
         const isMatch = await bcrypt.compare(password, user.password)
         if (!isMatch) { throw new ErrorResponse("wrong password", 401) }
         const payload = { email: user.email, id: user._id }
-        const token = jwt.sign(payload, process.env.JWT_SECRET)
-        res.cookie("access_token", token, { maxage: 500 * 6000,httpOnly: true, }).json(payload)
+        const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "500m" })
+        res.cookie("access_token", token, { maxage: 500 * 6000, httpOnly: true, }).json(payload)
     } catch (error) {
         next(error);
     }
