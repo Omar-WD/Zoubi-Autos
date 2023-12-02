@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, "client", "dist")))
 app.use(cookieParser());
 app.use(express.json())
 app.use(cors({
-    origin: ['https://elzoobiautohandel.onrender.com', 'http://localhost:5173', 'https://a.radwantravel.com'],
+    origin: '*',
     credentials: true
 }))
 
@@ -31,6 +31,8 @@ app.use("/api/user",authRouter)
 app.use("/api/products",productRouter)
 
 app.get("*", (req, res)=>{
+    // Add CORS header before sending the response
+    res.setHeader('Access-Control-Allow-Origin', 'https://elzoobiautohandel.de');
     res.sendFile(path.join(__dirname, "client", "dist", "index.html" ))
   })
 app.use(errorHandler)

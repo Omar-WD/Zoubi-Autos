@@ -33,8 +33,8 @@ export default function ProductList() {
         setProducts(response.data);
        
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.error("Error fetching products:", error);
       });
   }, [products]);
 
