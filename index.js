@@ -36,7 +36,7 @@ app.use("/api/products",productRouter)
 
 app.get("*", (req, res)=>{
     // Add CORS header before sending the response
-    res.setHeader('Access-Control-Allow-Origin', 'https://elzoobiautohandel.de');
+    // res.header('Access-Control-Allow-Origin', 'https://elzoobiautohandel.de');
     res.sendFile(path.join(__dirname, "client", "dist", "index.html" ))
   })
 app.use(errorHandler)

@@ -24,6 +24,7 @@ const signup = async (req, res, next) => {
 }
 
 const signin = async (req, res, next) => {
+    console.log("Signin route hit");
     try {
         const { email, password } = req.body
         const user = await User.findOne({ email }).select("+password")
@@ -33,9 +34,11 @@ const signin = async (req, res, next) => {
         if (!isMatch) { throw new ErrorResponse("wrong password", 401) }
         const payload = { email: user.email, id: user._id }
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "500m" })
-        res.cookie("access_token", token, { maxage: 500 * 6000, httpOnly: true, }).json(payload)
+        res.cookie("access_token", token, { maxAge: 500 * 6000, httpOnly: true, sameSite: 'None', secure: true }).json(payload);
+        
+
     } catch (error) {
-        next(error); 
+        next(error);
     }
 }
 

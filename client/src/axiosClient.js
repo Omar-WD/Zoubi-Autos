@@ -6,6 +6,7 @@ const baseURL = "https://elzoobiautohandel.onrender.com";
 const axiosClient = axios.create({
   baseURL: baseURL + "/api",
   withCredentials: true,
+  credentials: 'include',
 });
 
 export { axiosClient }; 
