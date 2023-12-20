@@ -26,7 +26,7 @@ const productSchema = new mongoose.Schema({
     farbe:{type:String, required:true},
     innenausstattung:{type:String, required:true},
     verbrauch:{type:String, required:false},
-    co2Emissionen:{type:String, required:<i class="fa fa-files-o" aria-hidden="true"></i>},
+    co2Emissionen:{type:String, required:false},
     price:{type:Number, required:true},
     images:[{type:String, required:true}],
     owner:{type:mongoose.Types.ObjectId, ref:"User", default:"64e5f6e7d2cafa9051fb20f1"},
