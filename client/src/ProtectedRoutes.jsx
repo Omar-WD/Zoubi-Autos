@@ -3,14 +3,14 @@ import { Navigate, Outlet } from 'react-router-dom'
 import { AuthContext } from './context/AuthProvider'
 
 export default function ProtectedRoutes() {
-    const {user,isLoading}=useContext(AuthContext)
-    if(isLoading){
-        return <p>Loading...</p>
-    }
-    if(!isLoading && !user){
+    const {user}=useContext(AuthContext)
+    // if(isLoading){
+    //     return <p>Loading...</p>
+    // }
+    if( !user){
         return <Navigate to="/signin"/>
     }
-    if (!isLoading && user){
+    if ( user){
         return (
           <div>
             <Outlet/>

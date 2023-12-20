@@ -1,13 +1,12 @@
 .Navbar{
-    background:linear-gradient(to right, orangered, rgb(170, 48, 3));
+    /* background:linear-gradient(to right, orangered, rgb(170, 48, 3)); */
+    background-color: orangered;
     width: 100% !important;
-    height: 85px;
+    height: 5rem;
     margin-left: 0% !important;
     margin-right: 0% !important;
     z-index: 1;
     justify-content: space-around !important;
-
-
 }
 .NavbarCountainer{
     max-width: 100vw;
@@ -16,7 +15,7 @@
     margin-left: 0px !important;
     margin-right: 0px !important;
     padding: 0%;
-    
+    justify-content: space-around !important;
 }
 .NavbarCountainer button{
     margin-right: 50px;
@@ -76,6 +75,18 @@ color: #1E1F24 !important;
   
      
 }
+.custom-toggler .navbar-toggler-icon {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(177deg) brightness(105%) contrast(101%);
+  }
+.custom-toggler{
+    border: 1px solid transparent;
+}
+.navbar-toggler:focus {
+    border: 1px solid white;
+}
+.navbar-toggler:active{
+    border: 1px solid white;
+}
 
 
 @media only screen and (max-width: 1400px) {
@@ -92,6 +103,9 @@ color: #1E1F24 !important;
                 box-shadow: none;}
 }
 @media only screen and (max-width: 700px) {
+    .Navbar{
+        height: 4rem;
+    }
     .logo{
         height: 100%;
         width: 100%;
@@ -104,6 +118,10 @@ color: #1E1F24 !important;
     }
     .NavbarCountainer{
         padding: 0% !important;
+    }
+    .custom-toggler{
+        padding: 0% !important;
+        margin: 0% !important;
     }
    
 }

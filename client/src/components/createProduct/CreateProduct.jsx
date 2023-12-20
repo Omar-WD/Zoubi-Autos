@@ -186,6 +186,27 @@ function CreateProduct() {
                       { value: "BMW", label: "BMW" },
                       { value: "Volvo", label: "Volvo" },
                       { value: "VW", label: "VW" },
+                      { value: "Renault", label: "Renault" },
+                      { value: "Peugeot", label: "Peugeot" },
+                      { value: "Citroen", label: "Citroen" },
+                      { value: "Nissan", label: "Nissan" },
+                      { value: "Toyota", label: "Toyot" },
+                      { value: "Hyundai", label: "Hyundai" },
+                      { value: "Hyundai", label: "Hyundai" },
+                      { value: "Kia", label: "Kia" },
+                      { value: "Ford", label: "Ford" },
+                      { value: "Audi", label: "Audi" },
+                      { value: "Mazda", label: "Mazda" },
+                      { value: "Opel", label: "Opel" },
+                      { value: "Skoda", label: "Skoda" },
+                      { value: "Fiat", label: "Fiat" },
+                      { value: "Honda", label: "Honda" },
+                      { value: "Mitsubishi", label: "Mitsubishi" },
+                      { value: "Suzuki", label: "Suzuki" },
+                      { value: "Dacia", label: "Dacia" },
+                      { value: "Chevrolet", label: "Chevrolet" },
+                      { value: "Daihatsu", label: "Daihatsu" },
+                      { value: "Smart", label: "Smart" },
                     ]}
                   />
                 )}
@@ -204,6 +225,7 @@ function CreateProduct() {
                     options={[
                       { value: "Manual", label: "Manual" },
                       { value: "Automatik", label: "Automatik" },
+                      { value: "Halbautomatik", label: "Halbautomatik" },
                     ]}
                   />
                 )}
@@ -261,6 +283,7 @@ function CreateProduct() {
                       { value: "Diesel", label: "Diesel" },
                       { value: "Elecetric", label: "Elecetric" },
                       { value: "Hybird", label: "Hybird" },
+                      { value: "LPG", label: "LPG" },
                     ]}
                   />
                 )}
@@ -297,8 +320,8 @@ function CreateProduct() {
                       { value: "kombi", label: "kombi" },
                       { value: "Limousine", label: "Limousine" },
                       {
-                        value: "SUV/Geländewagen/Pichup",
-                        label: "SUV/Geländewagen/Pichup",
+                        value: "Geländewagen",
+                        label: "Geländewagen",
                       },
                     ]}
                   />
@@ -391,14 +414,14 @@ function CreateProduct() {
               <label>Verbrauch</label>
               <input
                 placeholder="verbrauch"
-                {...register("verbrauch", { required: true })}
+                {...register("verbrauch", { required: false })}
               />
             </div>
             <div className="labelAndInputDiv">
               <label>CO₂-Emissionen</label>
               <input
                 placeholder="co2Emissionen"
-                {...register("co2Emissionen", { required: true })}
+                {...register("co2Emissionen", { required: false })}
               />
             </div>
             <div className="labelAndInputDiv">

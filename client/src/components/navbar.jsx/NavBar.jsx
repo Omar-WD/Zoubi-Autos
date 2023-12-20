@@ -25,7 +25,10 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    if (location.pathname === "/" && decodeURIComponent(location.hash) === "#über-uns") {
+    if (
+      location.pathname === "/" &&
+      decodeURIComponent(location.hash) === "#über-uns"
+    ) {
       scrollToUberUns();
     }
   }, [location]);
@@ -37,7 +40,10 @@ export default function NavBar() {
     }
   };
   useEffect(() => {
-    if (location.pathname === "/" && decodeURIComponent(location.hash) === "#kontakt") {
+    if (
+      location.pathname === "/" &&
+      decodeURIComponent(location.hash) === "#kontakt"
+    ) {
       scrollToKontakt();
     }
   }, [location]);
@@ -47,10 +53,8 @@ export default function NavBar() {
       <Container className="NavbarCountainer">
         <Navbar.Brand as={Link} to="/" className="logoBox">
           <img src="./logo20.png" alt="logo" className="logo" />
-          {/* <h2 style={{color:"white", fontFamily:"fantasy", lineHeight:"28px", textAlign:"center"}}>EL ZOOBI AUTOHANDEL</h2> */}
-          {/* <h5 style={{color:"white", fontFamily:"-moz-initial", lineHeight:"28px", textAlign:"center"}}>AN- UND VERKAUF VON GEBRAUCHWAGEN</h5> */}
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" style={{backgroundColor:"white"}} />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="custom-toggler" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/" className="nav-link">
@@ -59,15 +63,37 @@ export default function NavBar() {
             <Nav.Link as={Link} to="/gebrauchwagen" className="nav-link">
               Gebrauchtwagen-angebote
             </Nav.Link>
-            <Nav.Link as={Link} to={{ pathname: "/", hash: "über-uns" }} className="nav-link">
-             Über mich
+            <Nav.Link
+              as={Link}
+              to={{ pathname: "/", hash: "über-uns" }}
+              className="nav-link"
+            >
+              Über mich
             </Nav.Link>
-            <NavDropdown title="Kontakt" className="KontaktDropDown" id="basic-nav-dropdown" menuVariant="dark">
-              <NavDropdown.Item href="tel:+495219876303">Mobil Telefonieren</NavDropdown.Item>
-              <NavDropdown.Item href="mailto:omarzoubi.1@outlook.com">Email Schreiben</NavDropdown.Item>
-              <NavDropdown.Item as={Link} to={{ pathname: "/", hash: "kontakt" }}>Mehr</NavDropdown.Item>
+            <NavDropdown
+              title="Kontakt"
+              className="KontaktDropDown"
+              id="basic-nav-dropdown"
+              menuVariant="dark"
+            >
+              <NavDropdown.Item href="tel:+495219876303">
+                Mobil Telefonieren
+              </NavDropdown.Item>
+              <NavDropdown.Item href="mailto:omarzoubi.1@outlook.com">
+                Email Schreiben
+              </NavDropdown.Item>
+              <NavDropdown.Item
+                as={Link}
+                to={{ pathname: "/", hash: "kontakt" }}
+              >
+                Mehr
+              </NavDropdown.Item>
             </NavDropdown>
-            {!isLoading && user ? <Nav.Link onClick={handleSignout}>Sign Out</Nav.Link> : ""}
+            {!isLoading && user ? (
+              <Nav.Link onClick={handleSignout}>Sign Out</Nav.Link>
+            ) : (
+              ""
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
