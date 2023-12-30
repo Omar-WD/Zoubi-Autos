@@ -5,11 +5,11 @@ import { FaCar, FaTools } from "react-icons/fa";
 import { AiFillEuroCircle } from "react-icons/ai";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import Contact from "../contact/Contact";
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthProvider";
+// import { useContext } from "react";
+// import { AuthContext } from "../../context/AuthProvider";
 
 export default function Services() {
-  const { isLoading } = useContext(AuthContext);
+  // const { isLoading } = useContext(AuthContext);
 
   useEffect(() => {
     function handleScroll() {
@@ -45,9 +45,9 @@ export default function Services() {
     };
   }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  } else {
+  // if (isLoading) {
+  //   return <div>Loading...</div>;
+  // } else {
     return (
       <Container className="servicePG">
         <Row className="heroSection">
@@ -153,4 +153,4 @@ export default function Services() {
       </Container>
     );
   }
-}
+// }

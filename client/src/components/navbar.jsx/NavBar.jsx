@@ -11,7 +11,7 @@ import { Link, useLocation } from "react-router-dom";
 export default function NavBar() {
   const { isLoading, signout, user } = useContext(AuthContext);
   const location = useLocation();
-  console.log("Nav user", user);
+
 
   const handleSignout = () => {
     signout();

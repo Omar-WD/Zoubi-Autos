@@ -16,7 +16,7 @@
   #root {
     margin: 0 !important;
     padding: 0 !important;
-    overflow: hidden;
+    /* overflow: hidden; */
   
     background-color: #101114;
   }

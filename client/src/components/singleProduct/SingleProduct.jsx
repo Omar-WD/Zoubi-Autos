@@ -171,7 +171,7 @@ export default function SingleProduct() {
               </div>
               <div className="pricediv">
                 <h2>Preis: {product.price} €</h2>
-                <p>{Math.round(product.price / 1.19)} € (Netto), 19%</p>
+                {/* <p>{Math.round(product.price / 1.19)} € (Netto), 19%</p> */}
               </div>
               <Button href="tel:+495219876303" className="callusBtn">
                 <BiSolidPhoneCall /> Mobil Telefonieren

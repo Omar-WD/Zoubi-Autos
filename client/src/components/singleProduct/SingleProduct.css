@@ -29,8 +29,8 @@ Col{
     flex-direction: column;
     justify-content: space-evenly;
     position: sticky;
-    right: 0%;
     top: 0;
+    z-index: 100;
 }
 .singleProductleftColumn{
     border-right: 20px solid #101114;
@@ -100,6 +100,7 @@ width: 100%;
     }
     .singleProductRightColumn {
         padding: 5px;
+        padding-top: 20px;
         justify-content: start;
         gap: 20px;
     }
